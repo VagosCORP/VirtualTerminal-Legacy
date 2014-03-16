@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Virtual Terminal</string>
+    <string name="app_Lab">Vagos CORP Virtual Terminal</string>
+    <string name="action_settings">Settings</string>
+    <string name="Button_Conect">Conectar</string>
+    <string name="Check_Num">#</string>
+    <string name="BSend">Enviar</string>
+    <string name="BSendn">Enviar#</string>
+    <string name="Text_RX">RX</string>
+    <string name="Text_TX">Vagos CORP</string>
+    <string name="Text_TXn">0123456789</string>
+    <string name="NB">No Bluetooth Available</string>
+    <string name="SincDev">Dispositivos Sincronizados</string>
+    <string name="EncDev">Dispositivos Encontrados</string>
+    <string name="device_list">Seleccione un Dispositivo</string>
+    <string name="BRX">Borrar RX</string>
+    <string name="BTX">Borrar TX</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="Chan_Ser">Cambiar Servidor</string>
+    <string name="Ser_Dat">Datos de Servidor</string>
+    <string name="set_server">Cambiar Servidor</string>
+    <string name="Server_IP">10.0.0.6</string>
+    <string name="Server_Port">2000</string>
+    <string name="OK">Aceptar</string>
+    <string name="main">MainActivity</string>
+    <string name="Button_Sel">Iniciar</string>
+    <string name="Sel_W">Cliente WiFi</string>
+    <string name="Sel_BT">Cliente Bluetooth</string>
+    <string name="Sel_Ws">Servidor WiFi</string>
+    <string name="Sel_BTs">Servidor Bluetooth</string>
+    <string name="Clientes">Clientes Inalámbricos</string>
+    <string name="Servidores">Servidores Inalámbricos</string>
+    <string name="Button_Des">Proximamente</string>
+    <string name="No_Dev">No tiene Dispositivos Sincronizados</string>
+    <string name="EnBT">Activación de Bluetooth Denegada por el Usuario</string>
+    <string name="BT_Device">Dispositivo Bluetooth</string>
+    <string name="Cancel_Conn">Cancelar Conexión</string>
+    <string name="fin1">Cliente Bluetooth Terminado!</string>
+    <string name="fin2">Cliente WiFi Terminado!</string>
+    <string name="case1">Conexión Establecida!</string>
+    <string name="case2">DataStream Listo!</string>
+    <string name="case3">Socket no Conectado!</string>
+    <string name="case4">Error en Host!</string>
+    <string name="case5">IO Exception!</string>
+    <string name="case6">Número Enviado!</string>
+    <string name="case7">Texto Enviado!</string>
+    <string name="case8">Tarea finalizada!</string>
+    <string name="case9">Tarea cancelada!</string>
+
+    <string-array name="Cases">
+        <item>"Conexión Establecida!"</item>
+        <item>"DataStream Listo!"</item>
+        <item>"Socket no Conectado!"</item>
+        <item>"Error en Host!"</item>
+        <item>"IO Exception!"</item>
+        <item>"Número Enviado!"</item>
+        <item>"Texto Enviado!"</item>
+        <item>"Tarea finalizada!"</item>
+        <item>"Tarea cancelada!"</item>
+    </string-array>
+    <string-array name="fin">
+        <item>"Cliente Bluetooth Terminado!"</item>
+        <item>"Cliente WiFi Terminado!"</item>
+    </string-array>
+
+    <string name="title_activity_r34rt23">R34rt23</string>
+    <string name="title_activity_rbdojqw">Rbdojqw</string>
+
+</resources>

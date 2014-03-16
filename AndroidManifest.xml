@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.vagoscorp.virtualterminal"
+    android:versionCode="20131103"
+    android:versionName="1.2" >
+
+    <uses-permission
+        android:name="android.permission.BLUETOOTH"
+        android:required="true" />
+    <uses-permission
+        android:name="android.permission.BLUETOOTH_ADMIN"
+        android:required="true" />
+    <uses-permission
+        android:name="android.permission.ACCESS_WIFI_STATE"
+        android:required="true" />
+    <uses-permission
+        android:name="android.permission.CHANGE_WIFI_STATE"
+        android:required="true" />
+    <uses-permission
+        android:name="android.permission.ACCESS_NETWORK_STATE"
+        android:required="true" />
+    <uses-permission
+        android:name="android.permission.CHANGE_NETWORK_STATE"
+        android:required="true" />
+    <uses-permission
+        android:name="android.permission.INTERNET"
+        android:required="true" />
+
+    <uses-sdk
+        android:minSdkVersion="7"
+        android:targetSdkVersion="19" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:screenOrientation="portrait"
+        android:theme="@style/AppBaseTheme" >
+        <activity
+            android:name="com.vagoscorp.virtualterminal.MainActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="sensorPortrait"
+            android:theme="@style/Dialog" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.vagoscorp.virtualterminal.Device_List"
+            android:label="@string/device_list"
+            android:parentActivityName="com.vagoscorp.virtualterminal.PrincipalBT"
+            android:screenOrientation="sensorPortrait"
+            android:theme="@style/Dialog" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.vagoscorp.virtualterminal.PrincipalBT" />
+        </activity>
+        <activity
+            android:name="com.vagoscorp.virtualterminal.Set_Server"
+            android:label="@string/set_server"
+            android:parentActivityName="com.vagoscorp.virtualterminal.PrincipalW"
+            android:screenOrientation="sensorPortrait"
+            android:theme="@style/Dialog" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.vagoscorp.virtualterminal.PrincipalWs" />
+        </activity>
+        <activity
+            android:name="com.vagoscorp.virtualterminal.PrincipalBT"
+            android:label="@string/app_name"
+            android:parentActivityName="com.vagoscorp.virtualterminal.MainActivity"
+            android:screenOrientation="sensorPortrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.vagoscorp.virtualterminal.MainActivity" />
+        </activity>
+        <activity
+            android:name="com.vagoscorp.virtualterminal.PrincipalW"
+            android:label="@string/app_name"
+            android:parentActivityName="com.vagoscorp.virtualterminal.MainActivity"
+            android:screenOrientation="sensorPortrait"
+            android:theme="@style/AppTheme" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.vagoscorp.virtualterminal.MainActivity" />
+        </activity>
+    </application>
+
+</manifest>
