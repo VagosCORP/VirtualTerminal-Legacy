@@ -192,9 +192,9 @@ public class PrincipalBT extends Activity implements OnComunicationListener,OnCo
 	public void conect(View view) {
 		if(comunic.estado == comunic.NULL) {
 			if(SC == MainActivity.CLIENT) {
-				comunic = new ComunicBT(mDevice, this);
+				comunic = new ComunicBT(this, mDevice);
 			}else if(SC == MainActivity.SERVER) {
-				comunic = new ComunicBT(BTAdapter, this);
+				comunic = new ComunicBT(this, BTAdapter);
 			}
 			comunic.setComunicationListener(this);
 			comunic.setConnectionListener(this);

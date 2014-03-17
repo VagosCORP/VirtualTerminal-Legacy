@@ -153,9 +153,9 @@ public class PrincipalW extends Activity implements OnComunicationListener,OnCon
 	public void conect(View view) {
 		if(comunic.estado == comunic.NULL) {
 			if(SC == MainActivity.CLIENT) {
-				comunic = new Comunic(serverip, serverport, this);
+				comunic = new Comunic(this, serverip, serverport);
 			}else if(SC == MainActivity.SERVER) {
-				comunic = new Comunic(serverport, this);
+				comunic = new Comunic(this, serverport);
 			}
 			comunic.setComunicationListener(this);
 			comunic.setConnectionListener(this);
