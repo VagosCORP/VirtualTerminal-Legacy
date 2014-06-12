@@ -65,7 +65,7 @@
             android:theme="@style/Dialog" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.vagoscorp.virtualterminal.PrincipalWs" />
+                android:value="com.vagoscorp.virtualterminal.PrincipalW" />
         </activity>
         <activity
             android:name="com.vagoscorp.virtualterminal.PrincipalBT"
