@@ -1,8 +1,8 @@
 package com.vagoscorp.virtualterminal;
 
-import libraries.vagoscorp.comunication.Eventos.OnComunicationListener;
-import libraries.vagoscorp.comunication.Eventos.OnConnectionListener;
-import libraries.vagoscorp.comunication.android.ComunicBT;
+import vclibs.communication.Eventos.OnComunicationListener;
+import vclibs.communication.Eventos.OnConnectionListener;
+import vclibs.communication.android.ComunicBT;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;

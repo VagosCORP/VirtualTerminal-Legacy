@@ -1,8 +1,8 @@
 package com.vagoscorp.virtualterminal;
 
-import libraries.vagoscorp.comunication.Eventos.OnComunicationListener;
-import libraries.vagoscorp.comunication.Eventos.OnConnectionListener;
-import libraries.vagoscorp.comunication.android.Comunic;
+import vclibs.communication.Eventos.OnComunicationListener;
+import vclibs.communication.Eventos.OnConnectionListener;
+import vclibs.communication.android.Comunic;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Intent;
