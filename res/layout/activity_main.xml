@@ -68,7 +68,7 @@
             android:text="@string/Sel_W" />
 
         <Button
-            android:id="@+id/Button02"
+            android:id="@+id/Sel_W"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -101,7 +101,7 @@
             android:text="@string/Sel_BTs" />
 
         <Button
-            android:id="@+id/Button01"
+            android:id="@+id/Sel_SBT"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -130,7 +130,7 @@
             android:text="@string/Sel_Ws" />
 
         <Button
-            android:id="@+id/Sel_W"
+            android:id="@+id/Sel_SW"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"

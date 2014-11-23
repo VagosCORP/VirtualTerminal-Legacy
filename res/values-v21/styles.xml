@@ -5,7 +5,7 @@
         AppBaseTheme from BOTH res/values/styles.xml and
         res/values-v11/styles.xml on API 14+ devices.
     -->
-    <style name="AppBaseTheme" parent="android:Theme.Holo.Light.DarkActionBar">
+    <style name="AppBaseTheme" parent="android:Theme.Material.Light.DarkActionBar">
 <!--     <style name="AppBaseTheme" parent="Theme.AppCompat.Light.DarkActionBar"> -->
 <!-- 		<item name="colorPrimary">#00F</item> -->
 <!-- 	    <item name="colorPrimaryDark">#44F</item> -->
@@ -13,11 +13,11 @@
 <!-- 	    <item name="textColorPrimary">@color/material_blue_500</item> -->
 <!-- 	    <item name="windowBackground">@color/material_blue_700</item> -->
 <!-- 	    <item name="navigationBarColor">@color/material_blue_700</item> -->
-        <!-- API 14 theme customizations can go here. -->
+        <!-- API 21 theme customizations can go here. -->
     </style>
-    <style name="Dialog" parent="android:Theme.Holo.Dialog">
+    <style name="Dialog" parent="android:Theme.Material.Dialog">
 <!--     <style name="Dialog" parent="Theme.AppCompat.Dialog"> -->
-        <!-- API 14 theme customizations can go here. -->
+        <!-- API 21 theme customizations can go here. -->
     </style>
 
 </resources>

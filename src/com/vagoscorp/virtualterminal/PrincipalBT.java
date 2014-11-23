@@ -4,6 +4,7 @@ import vclibs.communication.Eventos.OnComunicationListener;
 import vclibs.communication.Eventos.OnConnectionListener;
 import vclibs.communication.android.ComunicBT;
 import android.annotation.TargetApi;
+import android.app.ActionBar;
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
@@ -11,6 +12,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+//import android.support.v7.app.ActionBar;
+//import android.support.v7.app.ActionBarActivity;
 import android.text.InputType;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -31,7 +34,6 @@ public class PrincipalBT extends Activity implements OnComunicationListener,OnCo
 	public TextView SD;
 	private CheckBox TN;
 
-
 	public boolean N;
 	public int SC;
 
@@ -43,6 +45,8 @@ public class PrincipalBT extends Activity implements OnComunicationListener,OnCo
 
 	public int index;
 	public String[] DdeviceNames;
+	public String myName;
+	public String myAddress;
 
 	private final int REQUEST_ENABLE_BT = 1;
 	private final int SEL_BT_DEVICE = 2;
@@ -50,11 +54,12 @@ public class PrincipalBT extends Activity implements OnComunicationListener,OnCo
 
 	public static final String LD = "LD";
 	public static final String indev = "indev";
-	
-	
+	boolean pro = false;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.principal);
 		BTAdapter = BluetoothAdapter.getDefaultAdapter();
 		Intent tip = getIntent();
 		if (BTAdapter == null) {
@@ -63,7 +68,6 @@ public class PrincipalBT extends Activity implements OnComunicationListener,OnCo
 			finish();
 			return;
 		}
-		setContentView(R.layout.principal);
 		RX = (TextView) findViewById(R.id.RX);
 		TX = (EditText) findViewById(R.id.TX);
 		TN = (CheckBox) findViewById(R.id.TN);
@@ -75,15 +79,18 @@ public class PrincipalBT extends Activity implements OnComunicationListener,OnCo
 		index = defIndex;
 		comunic = new ComunicBT();
 		SC = tip.getIntExtra(MainActivity.typ, MainActivity.CLIENT);
+		pro = tip.getBooleanExtra(MainActivity.lvl, false);
+		Chan_Ser.setEnabled(true);
 		Send.setEnabled(false);
 		setupActionBar();
-		super.onCreate(savedInstanceState);
 	}
 	
 	@TargetApi(Build.VERSION_CODES.HONEYCOMB)
 	private void setupActionBar() {
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-			getActionBar().setDisplayHomeAsUpEnabled(true);
+			ActionBar aB = getActionBar();//Support
+			if(aB != null)
+				aB.setDisplayHomeAsUpEnabled(true);
 		}
 	}
 
@@ -93,37 +100,52 @@ public class PrincipalBT extends Activity implements OnComunicationListener,OnCo
 		getMenuInflater().inflate(R.menu.principal, menu);
 		return true;
 	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case android.R.id.home:
+			finish();
+			return true;
+		}
+		return super.onOptionsItemSelected(item);
+	}
 
 	private void initBTD(BluetoothDevice[] BonDev) {
+		myName = BTAdapter.getName();
+		myAddress = BTAdapter.getAddress();
 		if (BonDev.length > 0) {
 			// RX.append("no gut");
 			if (BonDev.length < index)
 				index = 0;
 			mDevice = BondedDevices[index];
 			SD.setText(mDevice.getName() + "\n" + mDevice.getAddress());
+			if(SC == MainActivity.SERVER)
+				SD.setText(myName + "\n" + myAddress);
 			Conect.setEnabled(true);
 		} else {
 			// RX.append("gut");
-			SD.setText(R.string.Ser_Dat);
+			SD.setText(R.string.NoPD);
 			Conect.setEnabled(false);
 		}
 	}
-
+	
 	@Override
-	protected void onStart() {
+	protected void onResume() {
 		SharedPreferences shapre = getPreferences(MODE_PRIVATE);
 		index = shapre.getInt(indev, defIndex);
-		// If Bluetooth is not on, request that it be enabled.
+		if(SC == MainActivity.SERVER)
+			Chan_Ser.setVisibility(View.GONE);//Enabled(false);
 		if (BTAdapter.isEnabled()) {
 			BondedDevices = BTAdapter.getBondedDevices().toArray(
-					new BluetoothDevice[0]);
+				new BluetoothDevice[0]);
 			initBTD(BondedDevices);
 		} else {
 			Intent enableIntent = new Intent(
 					BluetoothAdapter.ACTION_REQUEST_ENABLE);
 			startActivityForResult(enableIntent, REQUEST_ENABLE_BT);
 		}
-		super.onStart();
+		super.onResume();
 	}
 
 	@Override
@@ -157,11 +179,6 @@ public class PrincipalBT extends Activity implements OnComunicationListener,OnCo
 
 	@Override
 	protected void onDestroy() {
-//		if(comunic.estado == comunic.EN_SPERA) {
-//			comunic.Detener_Espera();
-//		}else if(comunic.estado == comunic.CONECTED) {
-//			comunic.Cortar_Conexion();
-//		}
 		comunic.Detener_Actividad();
 		super.onDestroy();
 	}
@@ -199,24 +216,13 @@ public class PrincipalBT extends Activity implements OnComunicationListener,OnCo
 			comunic.setComunicationListener(this);
 			comunic.setConnectionListener(this);
 			Chan_Ser.setEnabled(false);
-			Conect.setText("Conectando...");
+			Conect.setText(getResources().getString(R.string.Button_Conecting));
 			comunic.execute();
-		}else {
-//			if(comunic.estado == comunic.EN_SPERA) {
-//				comunic.Detener_Espera();
-//			}else if(comunic.estado == comunic.CONECTED) {
-//				comunic.Cortar_Conexion();
-//			}
+		}else
 			comunic.Detener_Actividad();
-		}
 	}
 
 	public void Cancelar(MenuItem mi) {
-//		if(comunic.estado == comunic.EN_SPERA) {
-//			comunic.Detener_Espera();
-//		}else if(comunic.estado == comunic.CONECTED) {
-//			comunic.Cortar_Conexion();
-//		}
 		comunic.Detener_Actividad();
 	}
 
@@ -237,15 +243,10 @@ public class PrincipalBT extends Activity implements OnComunicationListener,OnCo
 		if (TX.length() > 0) {
 			String Message = TX.getText().toString();
 			if (N) {
-				/*Toast.makeText(PrincipalW.this, Cases[5],
-						Toast.LENGTH_SHORT).show();*/
 				int Messagen = Integer.parseInt(Message);
 				comunic.enviar(Messagen);
-			} else {
-				/*Toast.makeText(PrincipalW.this, Cases[6],
-						Toast.LENGTH_SHORT).show();*/
+			} else
 				comunic.enviar(Message);
-			}
 		}
 	}
 
@@ -265,14 +266,14 @@ public class PrincipalBT extends Activity implements OnComunicationListener,OnCo
 	@Override
 	public void onConnectionstablished() {
 		Chan_Ser.setEnabled(false);
-		Conect.setText("Desconectar");
+		Conect.setText(getResources().getString(R.string.Button_DisConect));
 		Conect.setEnabled(true);
 		Send.setEnabled(true);
 	}
 
 	@Override
 	public void onConnectionfinished() {
-		Conect.setText("Conectar");
+		Conect.setText(getResources().getString(R.string.Button_Conect));
 		Conect.setEnabled(true);
 		Chan_Ser.setEnabled(true);
 		Send.setEnabled(false);

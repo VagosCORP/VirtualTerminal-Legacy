@@ -5,8 +5,15 @@
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
     -->
     <style name="AppBaseTheme" parent="android:Theme.Light">
-        <!--
-            Theme customizations available in newer API levels can go in
+        <item name="android:windowNoTitle">true</item>
+<!--     <style name="AppBaseTheme" parent="Theme.AppCompat.Light.NoActionBar"> -->
+<!--         <item name="colorPrimary">#00F</item> -->
+<!--     	<item name="colorPrimaryDark">#44F</item> -->
+<!--     	<item name="colorAccent">@color/material_green_A200</item> -->
+<!-- 	    <item name="textColorPrimary">@color/material_green_A200</item> -->
+<!-- 	    <item name="windowBackground">@color/material_green_A200</item> -->
+<!-- 	    <item name="navigationBarColor">@color/material_blue_700</item> -->
+        <!--Theme customizations available in newer API levels can go in
             res/values-vXX/styles.xml, while customizations related to
             backward-compatibility can go here.
         -->
@@ -17,6 +24,7 @@
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
     <style name="Dialog" parent="android:Theme.Dialog">
+<!--     <style name="Dialog" parent="Theme.AppCompat.Dialog"> -->
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
 

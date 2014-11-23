@@ -1,16 +1,27 @@
 package com.vagoscorp.virtualterminal;
 
+import java.math.BigInteger;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+import java.nio.ByteOrder;
+
 import vclibs.communication.Eventos.OnComunicationListener;
 import vclibs.communication.Eventos.OnConnectionListener;
 import vclibs.communication.android.Comunic;
 import android.annotation.TargetApi;
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.os.Bundle;
+//import android.support.v7.app.ActionBar;
+//import android.support.v7.app.ActionBarActivity;
 import android.text.InputType;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,6 +29,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class PrincipalW extends Activity implements OnComunicationListener,OnConnectionListener {
 
@@ -36,18 +48,25 @@ public class PrincipalW extends Activity implements OnComunicationListener,OnCon
 	public int SC;
 
 	WifiManager WFM;
+	ConnectivityManager CTM;
+	String myIP = "";
 	Comunic comunic;
 
+	private final int REQUEST_ENABLE_WIFI = 15;
+	private final int REQUEST_CHANGE_SERVER = 12;
 	public static final String SI = "SIP";
 	public static final String SP = "SPort";
 	public static final String defIP = "10.0.0.6";
 	public static final int defPort = 2000;
+	boolean pro = false;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		Intent tip = getIntent();
+		super.onCreate(savedInstanceState);
 		setContentView(R.layout.principal);
+		Intent tip = getIntent();
 		WFM = (WifiManager) getSystemService(WIFI_SERVICE);
+		CTM = (ConnectivityManager)getSystemService(CONNECTIVITY_SERVICE);
 		RX = (TextView) findViewById(R.id.RX);
 		TX = (EditText) findViewById(R.id.TX);
 		TN = (CheckBox) findViewById(R.id.TN);
@@ -60,16 +79,18 @@ public class PrincipalW extends Activity implements OnComunicationListener,OnCon
 		serverip = defIP;
 		serverport = defPort;
 		SC = tip.getIntExtra(MainActivity.typ, MainActivity.CLIENT);
+		pro = tip.getBooleanExtra(MainActivity.lvl, false);
 		Chan_Ser.setEnabled(true);
 		Send.setEnabled(false);
 		setupActionBar();
-		super.onCreate(savedInstanceState);
 	}
 	
 	@TargetApi(Build.VERSION_CODES.HONEYCOMB)
 	private void setupActionBar() {
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-			getActionBar().setDisplayHomeAsUpEnabled(true);
+			ActionBar aB = getActionBar();//Support
+			if(aB != null)
+				aB.setDisplayHomeAsUpEnabled(true);
 		}
 	}
 
@@ -79,52 +100,51 @@ public class PrincipalW extends Activity implements OnComunicationListener,OnCon
 		getMenuInflater().inflate(R.menu.principal, menu);
 		return true;
 	}
-
-	
-	 /*@Override
-	 public boolean onOptionsItemSelected(MenuItem item) {
-		 Cancelar(item);
-		return true;
-	 }*/
 	
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case android.R.id.home:
-			// This ID represents the Home or Up button. In the case of this
-			// activity, the Up button is shown. Use NavUtils to allow users
-			// to navigate up one level in the application structure. For
-			// more details, see the Navigation pattern on Android Design:
-			//
-			// http://developer.android.com/design/patterns/navigation.html#up-vs-back
-			//
 			finish();
-			//NavUtils.navigateUpFromSameTask(this);
-			//overridePendingTransition(R.animator.slide_in_left, R.animator.slide_out_right);
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
 	}
-	 
+	
 	@Override
-	protected void onStart() {
-		if (!WFM.isWifiEnabled()) {
-			WFM.setWifiEnabled(true);
+	protected void onResume() {
+		NetworkInfo nWI = CTM.getActiveNetworkInfo();
+		if (!WFM.isWifiEnabled() || !(nWI != null && nWI.getState() ==
+				NetworkInfo.State.CONNECTED)) {
+//			WFM.setWifiEnabled(true);
+			Intent enableIntent = new Intent(WifiManager.ACTION_PICK_WIFI_NETWORK);
+			startActivityForResult(enableIntent, REQUEST_ENABLE_WIFI);
+		}else {
+			int ipAddress = WFM.getConnectionInfo().getIpAddress();
+//			myIP = Formatter.formatIpAddress(ipAddress);
+			if (ByteOrder.nativeOrder().equals(ByteOrder.LITTLE_ENDIAN))
+		        ipAddress = Integer.reverseBytes(ipAddress);
+			byte[] ipByteArray = BigInteger.valueOf(ipAddress).toByteArray();
+			try {
+				myIP = InetAddress.getByAddress(ipByteArray).getHostAddress();
+		    }catch (UnknownHostException ex) {
+		        Log.e("WIFIIP", "Unable to get host address.");
+		        myIP = "0.0.0.0";
+		    }
 		}
+		if(SC == MainActivity.SERVER)
+			Chan_Ser.setVisibility(View.GONE);//Enabled(false);
 		SharedPreferences shapre = getPreferences(MODE_PRIVATE);
 		serverip = shapre.getString(SI, defIP);
 		serverport = shapre.getInt(SP, defPort);
 		SD.setText(serverip + ":" + serverport);
-		super.onStart();
+		if(SC == MainActivity.SERVER)
+			SD.setText(myIP + ":" + serverport);
+		super.onResume();
 	}
 
 	@Override
 	protected void onDestroy() {
-//		if(comunic.estado == comunic.EN_SPERA) {
-//			comunic.Detener_Espera();
-//		}else if(comunic.estado == comunic.CONECTED) {
-//			comunic.Cortar_Conexion();
-//		}
 		comunic.Detener_Actividad();
 		super.onDestroy();
 	}
@@ -133,20 +153,42 @@ public class PrincipalW extends Activity implements OnComunicationListener,OnCon
 		Intent CS = new Intent(this, Set_Server.class);
 		CS.putExtra(SI, serverip);
 		CS.putExtra(SP, serverport);
-		startActivityForResult(CS, 1);
+		startActivityForResult(CS, REQUEST_CHANGE_SERVER);
 	}
 
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		if (resultCode == Activity.RESULT_OK && requestCode == 1) {
-			serverip = data.getStringExtra(Set_Server.NSI);
-			serverport = data.getIntExtra(Set_Server.NSP, defPort);
-			SharedPreferences shapre = getPreferences(MODE_PRIVATE);
-			SharedPreferences.Editor editor = shapre.edit();
-			editor.putString(SI, serverip);
-			editor.putInt(SP, serverport);
-			editor.commit();
-			SD.setText(serverip + ":" + serverport);
+		switch(requestCode) {
+		case REQUEST_ENABLE_WIFI: {
+			if(!WFM.isWifiEnabled()/*resultCode != Activity.RESULT_OK*/) {
+				Toast.makeText(this, R.string.EnWF, Toast.LENGTH_SHORT).show();
+				finish();
+			}else {
+				NetworkInfo nWI = CTM.getActiveNetworkInfo();
+				if(!(nWI != null && nWI.getType() == ConnectivityManager.TYPE_WIFI &&
+						nWI.getState() == NetworkInfo.State.CONNECTED)){
+					Toast.makeText(this, R.string.EWF, Toast.LENGTH_SHORT).show();
+					finish();
+				}
+			}
+			break;
+		}
+		case REQUEST_CHANGE_SERVER: {
+			if (resultCode == Activity.RESULT_OK) {
+				serverip = data.getStringExtra(Set_Server.NSI);
+				serverport = data.getIntExtra(Set_Server.NSP, defPort);
+				SharedPreferences shapre = getPreferences(MODE_PRIVATE);
+				SharedPreferences.Editor editor = shapre.edit();
+				editor.putString(SI, serverip);
+				editor.putInt(SP, serverport);
+				editor.commit();
+				if(SC == MainActivity.CLIENT)
+					SD.setText(serverip + ":" + serverport);
+				else if(SC == MainActivity.SERVER)
+					SD.setText(myIP + ":" + serverport);
+			}
+			break;
+		}
 		}
 	}
 
@@ -160,24 +202,13 @@ public class PrincipalW extends Activity implements OnComunicationListener,OnCon
 			comunic.setComunicationListener(this);
 			comunic.setConnectionListener(this);
 			Chan_Ser.setEnabled(false);
-			Conect.setText("Conectando...");
+			Conect.setText(getResources().getString(R.string.Button_Conecting));
 			comunic.execute();
-		}else {
-//			if(comunic.estado == comunic.EN_SPERA) {
-//				comunic.Detener_Espera();
-//			}else if(comunic.estado == comunic.CONECTED) {
-//				comunic.Cortar_Conexion();
-//			}
+		}else
 			comunic.Detener_Actividad();
-		}
 	}
 
 	public void Cancelar(MenuItem mi) {
-//		if(comunic.estado == comunic.EN_SPERA) {
-//			comunic.Detener_Espera();
-//		}else if(comunic.estado == comunic.CONECTED) {
-//			comunic.Cortar_Conexion();
-//		}
 		comunic.Detener_Actividad();
 	}
 
@@ -198,15 +229,10 @@ public class PrincipalW extends Activity implements OnComunicationListener,OnCon
 		if (TX.length() > 0) {
 			String Message = TX.getText().toString();
 			if (N) {
-				/*Toast.makeText(PrincipalW.this, Cases[5],
-						Toast.LENGTH_SHORT).show();*/
 				int Messagen = Integer.parseInt(Message);
 				comunic.enviar(Messagen);
-			} else {
-				/*Toast.makeText(PrincipalW.this, Cases[6],
-						Toast.LENGTH_SHORT).show();*/
+			} else
 				comunic.enviar(Message);
-			}
 		}
 	}
 
@@ -226,14 +252,14 @@ public class PrincipalW extends Activity implements OnComunicationListener,OnCon
 	@Override
 	public void onConnectionstablished() {
 		Chan_Ser.setEnabled(false);
-		Conect.setText("Desconectar");
+		Conect.setText(getResources().getString(R.string.Button_DisConect));
 		Conect.setEnabled(true);
 		Send.setEnabled(true);
 	}
 
 	@Override
 	public void onConnectionfinished() {
-		Conect.setText("Conectar");
+		Conect.setText(getResources().getString(R.string.Button_Conect));
 		Conect.setEnabled(true);
 		Chan_Ser.setEnabled(true);
 		Send.setEnabled(false);
