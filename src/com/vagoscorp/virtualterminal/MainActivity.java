@@ -36,7 +36,7 @@ public class MainActivity extends Activity {
 	File[] fileList;
 	String[] fileNames;
 	int nfil = 0;
-	boolean pro = true;
+	boolean pro = false;
 	static String config = "config";
 	static String ext = ".vtconfig";
 	String bSel;

@@ -29,15 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="Chan_Ser"
-            android:text="@string/Chan_Ser" />
-
-        <CheckBox
-            android:id="@+id/TN"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checked="false"
-            android:onClick="tnum"
-            android:text="@string/Check_Num" />
+            android:text="@string/set_server" />
 
         <Button
             android:id="@+id/DelRX"
@@ -60,11 +52,26 @@
             android:onClick="BTX"
             android:text="@string/BTX" />
 
+        <TextView
+            android:id="@+id/inputTyp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="T" />
+
+        <!--<CheckBox-->
+            <!--android:id="@+id/TN"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:checked="false"-->
+            <!--android:onClick="tnum"-->
+            <!--android:text="@string/Check_Num" />-->
+
         <EditText
             android:id="@+id/TX"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="30"
             android:hint="@string/Text_TX"
             android:inputType="text" >
 
@@ -81,21 +88,12 @@
     </LinearLayout>
 
     <ScrollView
-        android:id="@+id/Scro"
+        android:id="@+id/scro"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:scrollbarAlwaysDrawVerticalTrack="true"
         android:scrollbarStyle="outsideOverlay" >
-
-<!-- 	    <EditText -->
-<!-- 	        android:id="@+id/RX" -->
-<!-- 	        android:layout_width="match_parent" -->
-<!-- 	        android:layout_height="wrap_content" -->
-<!-- 	        android:hint="@string/Text_RX" -->
-<!-- 	        android:inputType="none" -->
-<!-- 	        android:scrollbarAlwaysDrawVerticalTrack="true" -->
-<!-- 	        android:scrollbars="vertical" -->
-<!-- 	        android:textIsSelectable="true" /> -->
 	    
 	    <TextView
 	        android:id="@+id/RX"
@@ -108,6 +106,162 @@
 	        android:textIsSelectable="true" />
 
     </ScrollView>
+
+    <ScrollView
+        android:id="@+id/scron"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        android:scrollbarStyle="outsideOverlay"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/RXn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/Text_RX"
+            android:inputType="none"
+            android:scrollbarAlwaysDrawVerticalTrack="true"
+            android:scrollbars="vertical"
+            android:textIsSelectable="true" />
+
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/commander"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="bottom"
+        android:orientation="vertical"
+        android:visibility="gone" >
+
+        <!--<SurfaceView -->
+        <!--android:id="@+id/surfaceView1" -->
+        <!--android:layout_width="match_parent" -->
+        <!--android:layout_height="match_parent" /> -->
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/commDVal"
+                android:id="@+id/comm1"
+                android:onClick="commClick" />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/commDVal"
+                android:id="@+id/comm2"
+                android:onClick="commClick" />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/commDVal"
+                android:id="@+id/comm3"
+                android:onClick="commClick" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/commDVal"
+                android:id="@+id/comm4"
+                android:onClick="commClick" />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/commDVal"
+                android:id="@+id/comm5"
+                android:onClick="commClick" />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/commDVal"
+                android:id="@+id/comm6"
+                android:onClick="commClick" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone">
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/commDVal"
+                android:id="@+id/comm7"
+                android:onClick="commClick" />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/commDVal"
+                android:id="@+id/comm8"
+                android:onClick="commClick" />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/commDVal"
+                android:id="@+id/comm9"
+                android:onClick="commClick" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone">
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/commDVal"
+                android:id="@+id/comm10"
+                android:onClick="commClick" />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/commDVal"
+                android:id="@+id/comm11"
+                android:onClick="commClick" />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/commDVal"
+                android:id="@+id/comm12"
+                android:onClick="commClick" />
+        </LinearLayout>
+
+    </LinearLayout>
 
     <!--
         android:inputType="textMultiLine"

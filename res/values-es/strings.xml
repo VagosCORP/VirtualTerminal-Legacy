@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Virtual Terminal</string>
+    <string name="app_Lab">Vagos CORP Virtual Terminal</string>
+    <string name="action_settings">Configuración</string>
+    <string name="Button_Conect">Conectar</string>
+    <string name="Button_Conecting">Conectando...</string>
+    <string name="Button_DisConect">Desconectar</string>
+    <!--<string name="Check_Num">#</string>-->
+    <string name="BSend">Enviar</string>
+    <string name="Text_RX">RX</string>
+    <string name="Text_TX">Vagos CORP</string>
+    <string name="Text_TXn">0123456789</string>
+    <string name="Text_TXb">01</string>
+    <string name="Text_TXh">0123456789ABCDEF</string>
+    <string name="NB">Su Dispositivo no cuenta con Bluetooth</string>
+    <string name="SincDev">Dispositivos Sincronizados</string>
+    <string name="EncDev">Dispositivos Encontrados</string>
+    <string name="device_list">Seleccione un Dispositivo</string>
+    <string name="BRX">Borrar RX</string>
+    <string name="BTX">Borrar TX</string>
+    <string name="hello_world">Hola mundo!</string>
+    <string name="Ser_Dat">Datos de Servidor</string>
+    <string name="NoPD">Ningún Dispositivo Sincronizado</string>
+    <string name="set_server">Cambiar Servidor</string>
+    <string name="Server_IP">10.0.0.6</string>
+    <string name="Server_Port">2000</string>
+    <string name="OK">Aceptar</string>
+    <string name="Button_Sel">Iniciar</string>
+    <string name="needPro">PRO</string>
+    <string name="Sel_W">Cliente WiFi</string>
+    <string name="Sel_BT">Cliente Bluetooth</string>
+    <string name="Sel_Ws">Servidor WiFi</string>
+    <string name="Sel_BTs">Servidor Bluetooth</string>
+    <string name="Clientes">Clientes Inalámbricos</string>
+    <string name="Servidores">Servidores Inalámbricos</string>
+    <!--<string name="Button_Des">Proximamente</string>-->
+    <string name="EnBT">Activación de Bluetooth Denegada por el Usuario</string>
+    <string name="EnWF">WiFi Deshabilitado</string>
+    <string name="EWF">Espere a que la conexión WiFi sea establecida</string>
+    <string name="BT_Device">Dispositivo Bluetooth</string>
+    <string name="Cancel_Conn">Cancelar Conexión</string>
+    <string name="numRCV">Recepción Numérica</string>
+    <string name="defRCV">Recepción de Texto</string>
+    <string name="commMode">Commander Mode</string>
+    <string name="commDVal">NO_DAT</string>
+    <string name="exitCommMode">Normal Mode</string>
+    <string name="commModeNP">Comm Mode(PRO)</string>
+    <string name="noPro">Disponible solo para Usuarios Pro</string>
+    <string name="typSend">Tipo de envío</string>
+    <string name="textTyp">Envio de Texto</string>
+    <string name="numTyp">Envio Numérico</string>
+    <string name="binTyp">Envio Binario</string>
+    <string name="hexTyp">Envio Hexadecimal</string>
+    <string name="numFormExc">Formato Numérico Erróneo</string>
+    <string name="txt">T</string>
+    <string name="num">#</string>
+    <string name="bin">0b</string>
+    <string name="hex">0x</string>
+
+</resources>

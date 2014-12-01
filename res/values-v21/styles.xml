@@ -6,7 +6,7 @@
         res/values-v11/styles.xml on API 14+ devices.
     -->
     <style name="AppBaseTheme" parent="android:Theme.Material.Light.DarkActionBar">
-<!--     <style name="AppBaseTheme" parent="Theme.AppCompat.Light.DarkActionBar"> -->
+     <!--<style name="AppBaseTheme" parent="Theme.AppCompat.Light.DarkActionBar"> -->
 <!-- 		<item name="colorPrimary">#00F</item> -->
 <!-- 	    <item name="colorPrimaryDark">#44F</item> -->
 <!-- 	    <item name="colorAccent">@color/material_green_A200</item> -->
@@ -16,7 +16,7 @@
         <!-- API 21 theme customizations can go here. -->
     </style>
     <style name="Dialog" parent="android:Theme.Material.Dialog">
-<!--     <style name="Dialog" parent="Theme.AppCompat.Dialog"> -->
+     <!--<style name="Dialog" parent="Theme.AppCompat.Dialog"> -->
         <!-- API 21 theme customizations can go here. -->
     </style>
 

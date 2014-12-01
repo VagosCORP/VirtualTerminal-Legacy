@@ -1,20 +1,40 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:showAsAction="never"
-        android:title="@string/action_settings"/>
-    <item
-        android:id="@+id/item1"
+        android:id="@+id/commMode"
         android:orderInCategory="1"
-        android:showAsAction="never"
-        android:title="@string/Text_TX"/>
+        android:title="@string/commModeNP"/>
     <item
-        android:id="@+id/item2"
+        android:id="@+id/SendType"
         android:orderInCategory="2"
-        android:showAsAction="never"
-        android:title="@string/Cancel_Conn"
-        android:onClick="Cancelar"/>
+        android:showAsAction="ifRoom"
+        android:title="@string/typSend">
+        <menu>
+            <item
+                android:id="@+id/txtSend"
+                android:title="@string/textTyp"/>
+            <item
+                android:id="@+id/numSend"
+                android:title="@string/numTyp"/>
+            <item
+                android:id="@+id/binSend"
+                android:title="@string/binTyp"/>
+            <item
+                android:id="@+id/hexSend"
+                android:title="@string/hexTyp"/>
+        </menu>
+    </item>
+    <item
+        android:id="@+id/rcvTyp"
+        android:orderInCategory="3"
+        android:title="@string/numRCV"/>
+    <item
+        android:id="@+id/endCOM"
+        android:orderInCategory="4"
+        android:title="@string/Cancel_Conn"/>
+    <!--<item-->
+        <!--android:id="@+id/action_settings"-->
+        <!--android:orderInCategory="100"-->
+        <!--android:title="@string/action_settings"/>-->
 
 </menu>

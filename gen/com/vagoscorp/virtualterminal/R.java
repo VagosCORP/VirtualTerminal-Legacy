@@ -24,7 +24,7 @@ public final class R {
         public static final int ic_w=0x7f020002;
     }
     public static final class id {
-        public static final int Change=0x7f080017;
+        public static final int Change=0x7f080026;
         public static final int Conect=0x7f08000a;
         public static final int DelRX=0x7f080011;
         public static final int DelTX=0x7f080010;
@@ -33,24 +33,45 @@ public final class R {
         public static final int LD=0x7f080008;
         public static final int P_LYT=0x7f080009;
         public static final int RX=0x7f080013;
-        public static final int SS_LYT=0x7f080014;
-        public static final int Scro=0x7f080012;
+        public static final int RXn=0x7f080015;
+        public static final int SS_LYT=0x7f080023;
         public static final int Sel_BT=0x7f080001;
         public static final int Sel_SBT=0x7f080005;
         public static final int Sel_SW=0x7f080007;
         public static final int Sel_W=0x7f080003;
-        public static final int Send=0x7f08000e;
-        public static final int Server_IP=0x7f080015;
-        public static final int Server_Port=0x7f080016;
-        public static final int TN=0x7f08000f;
-        public static final int TX=0x7f08000d;
-        public static final int action_settings=0x7f080018;
+        public static final int Send=0x7f08000f;
+        public static final int SendType=0x7f080029;
+        public static final int Server_IP=0x7f080024;
+        public static final int Server_Port=0x7f080025;
+        public static final int TX=0x7f08000e;
+        public static final int action_settings=0x7f080027;
+        public static final int binSend=0x7f08002c;
         public static final int chan_ser=0x7f08000c;
+        public static final int comm1=0x7f080017;
+        public static final int comm10=0x7f080020;
+        public static final int comm11=0x7f080021;
+        public static final int comm12=0x7f080022;
+        public static final int comm2=0x7f080018;
+        public static final int comm3=0x7f080019;
+        public static final int comm4=0x7f08001a;
+        public static final int comm5=0x7f08001b;
+        public static final int comm6=0x7f08001c;
+        public static final int comm7=0x7f08001d;
+        public static final int comm8=0x7f08001e;
+        public static final int comm9=0x7f08001f;
+        public static final int commMode=0x7f080028;
+        public static final int commander=0x7f080016;
+        public static final int endCOM=0x7f08002f;
+        public static final int hexSend=0x7f08002d;
         public static final int imageView1=0x7f080000;
         public static final int imageView2=0x7f080006;
-        public static final int item1=0x7f080019;
-        public static final int item2=0x7f08001a;
+        public static final int inputTyp=0x7f08000d;
         public static final int label_ser=0x7f08000b;
+        public static final int numSend=0x7f08002b;
+        public static final int rcvTyp=0x7f08002e;
+        public static final int scro=0x7f080012;
+        public static final int scron=0x7f080014;
+        public static final int txtSend=0x7f08002a;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
@@ -64,47 +85,66 @@ public final class R {
     }
     public static final class string {
         public static final int BRX=0x7f050010;
-        public static final int BSend=0x7f050007;
-        public static final int BSendn=0x7f050008;
+        /** <string name="Check_Num">#</string>
+<string name="Check_Num">#</string>
+         */
+        public static final int BSend=0x7f050006;
         public static final int BTX=0x7f050011;
-        public static final int BT_Device=0x7f050028;
+        public static final int BT_Device=0x7f050024;
         public static final int Button_Conect=0x7f050003;
         public static final int Button_Conecting=0x7f050004;
-        public static final int Button_Des=0x7f050023;
         public static final int Button_DisConect=0x7f050005;
-        public static final int Button_Sel=0x7f05001b;
-        public static final int Cancel_Conn=0x7f050029;
-        public static final int Chan_Ser=0x7f050013;
-        public static final int Check_Num=0x7f050006;
-        public static final int Clientes=0x7f050021;
-        public static final int EWF=0x7f050027;
-        public static final int EnBT=0x7f050025;
-        public static final int EnWF=0x7f050026;
+        public static final int Button_Sel=0x7f050019;
+        public static final int Cancel_Conn=0x7f050025;
+        public static final int Clientes=0x7f05001f;
+        public static final int EWF=0x7f050023;
+        /** <string name="Button_Des">Soon</string>
+<string name="Button_Des">Proximamente</string>
+         */
+        public static final int EnBT=0x7f050021;
+        public static final int EnWF=0x7f050022;
         public static final int EncDev=0x7f05000e;
         public static final int NB=0x7f05000c;
-        public static final int NoPD=0x7f050015;
-        public static final int No_Dev=0x7f050024;
-        public static final int OK=0x7f050019;
-        public static final int Sel_BT=0x7f05001e;
-        public static final int Sel_BTs=0x7f050020;
-        public static final int Sel_W=0x7f05001d;
-        public static final int Sel_Ws=0x7f05001f;
-        public static final int Ser_Dat=0x7f050014;
-        public static final int Server_IP=0x7f050017;
-        public static final int Server_Port=0x7f050018;
-        public static final int Servidores=0x7f050022;
+        public static final int NoPD=0x7f050014;
+        public static final int OK=0x7f050018;
+        public static final int Sel_BT=0x7f05001c;
+        public static final int Sel_BTs=0x7f05001e;
+        public static final int Sel_W=0x7f05001b;
+        public static final int Sel_Ws=0x7f05001d;
+        public static final int Ser_Dat=0x7f050013;
+        public static final int Server_IP=0x7f050016;
+        public static final int Server_Port=0x7f050017;
+        public static final int Servidores=0x7f050020;
         public static final int SincDev=0x7f05000d;
-        public static final int Text_RX=0x7f050009;
-        public static final int Text_TX=0x7f05000a;
-        public static final int Text_TXn=0x7f05000b;
+        public static final int Text_RX=0x7f050007;
+        public static final int Text_TX=0x7f050008;
+        public static final int Text_TXb=0x7f05000a;
+        public static final int Text_TXh=0x7f05000b;
+        public static final int Text_TXn=0x7f050009;
         public static final int action_settings=0x7f050002;
         public static final int app_Lab=0x7f050001;
         public static final int app_name=0x7f050000;
+        public static final int bin=0x7f050035;
+        public static final int binTyp=0x7f050030;
+        public static final int commDVal=0x7f050029;
+        public static final int commMode=0x7f050028;
+        public static final int commModeNP=0x7f05002b;
+        public static final int defRCV=0x7f050027;
         public static final int device_list=0x7f05000f;
+        public static final int exitCommMode=0x7f05002a;
         public static final int hello_world=0x7f050012;
-        public static final int main=0x7f05001a;
-        public static final int needPro=0x7f05001c;
-        public static final int set_server=0x7f050016;
+        public static final int hex=0x7f050036;
+        public static final int hexTyp=0x7f050031;
+        public static final int needPro=0x7f05001a;
+        public static final int noPro=0x7f05002c;
+        public static final int num=0x7f050034;
+        public static final int numFormExc=0x7f050032;
+        public static final int numRCV=0x7f050026;
+        public static final int numTyp=0x7f05002f;
+        public static final int set_server=0x7f050015;
+        public static final int textTyp=0x7f05002e;
+        public static final int txt=0x7f050033;
+        public static final int typSend=0x7f05002d;
     }
     public static final class style {
         /** 
@@ -152,7 +192,7 @@ Theme customizations available in newer API levels can go in
         AppBaseTheme from BOTH res/values/styles.xml and
         res/values-v11/styles.xml on API 14+ devices.
     
-     <style name="AppBaseTheme" parent="Theme.AppCompat.Light.DarkActionBar"> 
+<style name="AppBaseTheme" parent="Theme.AppCompat.Light.DarkActionBar"> 
  		<item name="colorPrimary">#00F</item> 
  	    <item name="colorPrimaryDark">#44F</item> 
  	    <item name="colorAccent">@color/material_green_A200</item> 
@@ -172,7 +212,7 @@ Theme customizations available in newer API levels can go in
  API 11 theme customizations can go here. 
      <style name="Dialog" parent="Theme.AppCompat.Dialog"> 
  API 14 theme customizations can go here. 
-     <style name="Dialog" parent="Theme.AppCompat.Dialog"> 
+<style name="Dialog" parent="Theme.AppCompat.Dialog"> 
  API 21 theme customizations can go here. 
          */
         public static final int Dialog=0x7f060002;
