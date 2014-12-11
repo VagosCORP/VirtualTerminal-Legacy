@@ -1,0 +1,3 @@
+<resources>
+    <item name="principal" type="layout">@layout/principalbig</item>
+</resources>

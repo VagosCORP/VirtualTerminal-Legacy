@@ -1,5 +1,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
     android:id="@+id/P_LYT"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -49,7 +51,7 @@
             android:id="@+id/TX"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="30"
+            android:layout_weight="12"
             android:hint="@string/Text_TX"
             android:inputType="text" >
 
@@ -79,6 +81,7 @@
             <!--android:text="@string/Check_Num" />-->
 
         <Button
+            style = "android:attr/buttonBarButtonStyle"
             android:id="@+id/DelTX"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -86,6 +89,7 @@
             android:text="@string/BTX" />
 
         <Button
+            style = "android:attr/buttonBarButtonStyle"
             android:id="@+id/DelRX"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -153,6 +157,7 @@
              android:layout_height="wrap_content">
 
              <Button
+                 style = "android:attr/buttonBarButtonStyle"
                  android:layout_width="0dp"
                  android:layout_height="wrap_content"
                  android:layout_weight="1"
@@ -161,6 +166,7 @@
                 android:onClick="commClick" />
 
              <Button
+                 style = "android:attr/buttonBarButtonStyle"
                  android:layout_width="0dp"
                  android:layout_height="wrap_content"
                  android:layout_weight="1"
@@ -169,6 +175,7 @@
                 android:onClick="commClick" />
 
              <Button
+                 style = "android:attr/buttonBarButtonStyle"
                  android:layout_width="0dp"
                  android:layout_height="wrap_content"
                  android:layout_weight="1"
@@ -182,6 +189,7 @@
              android:layout_height="wrap_content">
 
              <Button
+                 style = "android:attr/buttonBarButtonStyle"
                  android:layout_width="0dp"
                  android:layout_height="wrap_content"
                  android:layout_weight="1"
@@ -190,6 +198,7 @@
                 android:onClick="commClick" />
 
              <Button
+                 style = "android:attr/buttonBarButtonStyle"
                  android:layout_width="0dp"
                  android:layout_height="wrap_content"
                  android:layout_weight="1"
@@ -198,6 +207,7 @@
                 android:onClick="commClick" />
 
              <Button
+                 style = "android:attr/buttonBarButtonStyle"
                  android:layout_width="0dp"
                  android:layout_height="wrap_content"
                  android:layout_weight="1"
@@ -211,6 +221,7 @@
              android:layout_height="wrap_content">
 
              <Button
+                 style = "android:attr/buttonBarButtonStyle"
                  android:layout_width="0dp"
                  android:layout_height="wrap_content"
                  android:layout_weight="1"
@@ -219,6 +230,7 @@
                 android:onClick="commClick" />
 
              <Button
+                 style = "android:attr/buttonBarButtonStyle"
                  android:layout_width="0dp"
                  android:layout_height="wrap_content"
                  android:layout_weight="1"
@@ -227,6 +239,7 @@
                 android:onClick="commClick" />
 
              <Button
+                 style = "android:attr/buttonBarButtonStyle"
                  android:layout_width="0dp"
                  android:layout_height="wrap_content"
                  android:layout_weight="1"
@@ -240,6 +253,7 @@
              android:layout_height="wrap_content">
 
              <Button
+                 style = "android:attr/buttonBarButtonStyle"
                  android:layout_width="0dp"
                  android:layout_height="wrap_content"
                  android:layout_weight="1"
@@ -248,6 +262,7 @@
                 android:onClick="commClick" />
 
              <Button
+                 style = "android:attr/buttonBarButtonStyle"
                  android:layout_width="0dp"
                  android:layout_height="wrap_content"
                  android:layout_weight="1"
@@ -256,6 +271,7 @@
                 android:onClick="commClick" />
 
              <Button
+                 style = "android:attr/buttonBarButtonStyle"
                  android:layout_width="0dp"
                  android:layout_height="wrap_content"
                  android:layout_weight="1"

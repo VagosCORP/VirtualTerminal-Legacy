@@ -1,9 +1,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <item
-        android:id="@+id/commMode"
+        android:id="@+id/rcvTyp"
         android:orderInCategory="1"
-        android:title="@string/commModeNP"/>
+        android:title="@string/numRCV"/>
     <item
         android:id="@+id/SendType"
         android:orderInCategory="2"
@@ -25,9 +25,9 @@
         </menu>
     </item>
     <item
-        android:id="@+id/rcvTyp"
+        android:id="@+id/commMode"
         android:orderInCategory="3"
-        android:title="@string/numRCV"/>
+        android:title="@string/commModeNP"/>
     <item
         android:id="@+id/endCOM"
         android:orderInCategory="4"

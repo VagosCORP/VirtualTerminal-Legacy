@@ -1,19 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name" translatable="false">Virtual Terminal</string>
-    <string name="app_Lab" translatable="false">Vagos CORP Virtual Terminal</string>
     <string name="action_settings">Settings</string>
     <string name="Button_Conect">Connect</string>
     <string name="Button_Conecting">Connecting…</string>
     <string name="Button_DisConect">Disconnect</string>
     <!--<string name="Check_Num">#</string>-->
     <string name="BSend">Send</string>
-    <string name="Text_RX" translatable="false">RX</string>
-    <string name="Text_TX" translatable="false">Vagos CORP</string>
-    <string name="Text_TXn" translatable="false">0123456789</string>
-    <string name="Text_TXb" translatable="false">01</string>
-    <string name="Text_TXh" translatable="false">0123456789ABCDEF</string>
     <string name="NB">Your Device don\'t have Bluetooth</string>
     <string name="SincDev">Paired Devices</string>
     <string name="EncDev">Finded Devices</string>
@@ -24,11 +17,8 @@
     <string name="Ser_Dat">Server Data</string>
     <string name="NoPD">No Paired Devices</string>
     <string name="set_server">Change Server</string>
-    <string name="Server_IP" translatable="false">10.0.0.6</string>
-    <string name="Server_Port" translatable="false">2000</string>
     <string name="OK">Accept</string>
     <string name="Button_Sel">Start</string>
-    <string name="needPro" translatable="false">PRO</string>
     <string name="Sel_W">WiFi Client</string>
     <string name="Sel_BT">Bluetooth Client</string>
     <string name="Sel_Ws">WiFi Server</string>
@@ -44,7 +34,6 @@
     <string name="numRCV">Numeric Reception</string>
     <string name="defRCV">Text Reception</string>
     <string name="commMode">Commander Mode</string>
-    <string name="commDVal" translatable="false">NO_DAT</string>
     <string name="exitCommMode">Normal Mode</string>
     <string name="commModeNP">Commander(PRO)</string>
     <string name="noPro">Available for PRO Users only</string>
@@ -54,10 +43,6 @@
     <string name="binTyp">Binary Send</string>
     <string name="hexTyp">Hexadecimal Send</string>
     <string name="numFormExc">Numeric Format Exception</string>
-    <string name="txt" translatable="false">T</string>
-    <string name="num" translatable="false">#</string>
-    <string name="bin" translatable="false">0b</string>
-    <string name="hex" translatable="false">0x</string>
     <string name="MyLoc">en</string>
 
 </resources>

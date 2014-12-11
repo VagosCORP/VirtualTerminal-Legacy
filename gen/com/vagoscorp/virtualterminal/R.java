@@ -15,8 +15,10 @@ public final class R {
          */
         public static final int activity_horizontal_margin=0x7f040000;
         public static final int activity_vertical_margin=0x7f040001;
-        public static final int px20=0x7f040003;
-        public static final int px30=0x7f040002;
+        public static final int main_horizontal_margin=0x7f040002;
+        public static final int main_vertical_margin=0x7f040003;
+        public static final int px20=0x7f040005;
+        public static final int px30=0x7f040004;
     }
     public static final class drawable {
         public static final int ic_bt=0x7f020000;
@@ -40,12 +42,11 @@ public final class R {
         public static final int Sel_SW=0x7f080007;
         public static final int Sel_W=0x7f080003;
         public static final int Send=0x7f08000f;
-        public static final int SendType=0x7f080029;
+        public static final int SendType=0x7f080028;
         public static final int Server_IP=0x7f080024;
         public static final int Server_Port=0x7f080025;
         public static final int TX=0x7f08000e;
-        public static final int action_settings=0x7f080027;
-        public static final int binSend=0x7f08002c;
+        public static final int binSend=0x7f08002b;
         public static final int chan_ser=0x7f08000c;
         public static final int comm1=0x7f080017;
         public static final int comm10=0x7f080020;
@@ -59,33 +60,34 @@ public final class R {
         public static final int comm7=0x7f08001d;
         public static final int comm8=0x7f08001e;
         public static final int comm9=0x7f08001f;
-        public static final int commMode=0x7f080028;
+        public static final int commMode=0x7f08002d;
         public static final int commander=0x7f080016;
-        public static final int endCOM=0x7f08002f;
-        public static final int hexSend=0x7f08002d;
+        public static final int endCOM=0x7f08002e;
+        public static final int hexSend=0x7f08002c;
         public static final int imageView1=0x7f080000;
         public static final int imageView2=0x7f080006;
         public static final int inputTyp=0x7f08000d;
         public static final int label_ser=0x7f08000b;
-        public static final int numSend=0x7f08002b;
-        public static final int rcvTyp=0x7f08002e;
+        public static final int numSend=0x7f08002a;
+        public static final int rcvTyp=0x7f080027;
         public static final int scro=0x7f080012;
         public static final int scron=0x7f080014;
-        public static final int txtSend=0x7f08002a;
+        public static final int txtSend=0x7f080029;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
         public static final int device_list=0x7f030001;
         public static final int principal=0x7f030002;
-        public static final int set_server=0x7f030003;
+        public static final int principalbig=0x7f030003;
+        public static final int set_server=0x7f030004;
     }
     public static final class menu {
-        public static final int main=0x7f070000;
-        public static final int principal=0x7f070001;
+        public static final int principal=0x7f070000;
     }
     public static final class string {
         public static final int BRX=0x7f050010;
         /** <string name="Check_Num">#</string>
+<string name="Check_Num">#</string>
 <string name="Check_Num">#</string>
          */
         public static final int BSend=0x7f050006;
@@ -99,11 +101,13 @@ public final class R {
         public static final int Clientes=0x7f05001f;
         public static final int EWF=0x7f050023;
         /** <string name="Button_Des">Soon</string>
+<string name="Button_Des">Soon</string>
 <string name="Button_Des">Proximamente</string>
          */
         public static final int EnBT=0x7f050021;
         public static final int EnWF=0x7f050022;
         public static final int EncDev=0x7f05000e;
+        public static final int MyLoc=0x7f050037;
         public static final int NB=0x7f05000c;
         public static final int NoPD=0x7f050014;
         public static final int OK=0x7f050018;
